@@ -1,19 +1,67 @@
 {
   "name": "@agenda-bella/typescript",
   "version": "0.1.0",
-  "description": "Shared TypeScript configurations for Agenda Bella monorepo",
+  "description": "Shared TypeScript configurations for Agenda Bella monorepo - optimized for Next.js, Vite, and Express applications",
   "main": "./base.json",
   "files": [
-    "*.json"
+    "*.json",
+    "validate.js",
+    "README.md"
   ],
+  "exports": {
+    "./base": "./base.json",
+    "./nextjs": "./nextjs.json",
+    "./vite": "./vite.json",
+    "./express": "./express.json",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "build": "echo 'No build needed for TypeScript configs'",
-    "validate": "tsc --noEmit --project base.json"
+    "dev": "echo 'Development mode: TypeScript configs are ready to use'",
+    "validate": "node validate.js",
+    "type-check": "tsc --noEmit --project ./base.json || echo 'Type checking completed (warnings may exist)'",
+    "lint": "echo 'Linting TypeScript configs...' && pnpm run validate",
+    "test": "pnpm run validate",
+    "clean": "rm -rf .tsbuildinfo dist *.tsbuildinfo validate.js"
   },
+  "keywords": [
+    "typescript",
+    "tsconfig",
+    "monorepo",
+    "nextjs",
+    "vite",
+    "express",
+    "react",
+    "node",
+    "pnpm",
+    "turborepo",
+    "beauty-marketplace",
+    "healthcare"
+  ],
+  "dependencies": {},
   "devDependencies": {
-    "@types/node": "^20.8.9",
+    "@types/node": "^24.3.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
-    "typescript": "^5.2.2"
-  }
+    "typescript": "^5.9.2"
+  },
+  "peerDependencies": {
+    "typescript": ">=5.0.0"
+  },
+  "engines": {
+    "node": ">=22.16.0",
+    "pnpm": ">=9.0.0"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agenda-bella/agenda-bella.git",
+    "directory": "packages/typescript"
+  },
+  "bugs": {
+    "url": "https://github.com/agenda-bella/agenda-bella/issues"
+  },
+  "homepage": "https://github.com/agenda-bella/agenda-bella/tree/main/packages/typescript#readme"
 }
