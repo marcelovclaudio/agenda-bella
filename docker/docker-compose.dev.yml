@@ -1,0 +1,79 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: agenda-bella-postgres-dev
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: agenda_bella_dev
+      POSTGRES_USER: agenda_bella
+      POSTGRES_PASSWORD: agenda_bella_dev_password
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - agenda-bella-dev
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U agenda_bella -d agenda_bella_dev"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  redis:
+    image: redis:7-alpine
+    container_name: agenda-bella-redis-dev
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - redis_data:/data
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    networks:
+      - agenda-bella-dev
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: agenda-bella-rabbitmq-dev
+    restart: unless-stopped
+    ports:
+      - "5672:5672"    # AMQP port
+      - "15672:15672"  # Management UI port
+    environment:
+      RABBITMQ_DEFAULT_USER: agenda_bella
+      RABBITMQ_DEFAULT_PASS: agenda_bella_dev_password
+      RABBITMQ_DEFAULT_VHOST: /agenda_bella
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+      - ./rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+      - ./rabbitmq/definitions.json:/etc/rabbitmq/definitions.json:ro
+    networks:
+      - agenda-bella-dev
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  rabbitmq_data:
+    driver: local
+
+networks:
+  agenda-bella-dev:
+    driver: bridge
+    name: agenda-bella-dev

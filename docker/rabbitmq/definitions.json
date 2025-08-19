@@ -1,0 +1,285 @@
+{
+  "rabbit_version": "3.12.0",
+  "rabbitmq_version": "3.12.0",
+  "product_name": "RabbitMQ",
+  "product_version": "3.12.0",
+  "users": [
+    {
+      "name": "agenda_bella",
+      "password_hash": "jx7+7fzfAm9OJQTNRUnj3y/k5+L3EfX0qOrGPdx3Cq4EAAED",
+      "hashing_algorithm": "rabbit_password_hashing_sha256",
+      "tags": ["administrator"]
+    }
+  ],
+  "vhosts": [
+    {
+      "name": "/agenda_bella"
+    }
+  ],
+  "permissions": [
+    {
+      "user": "agenda_bella",
+      "vhost": "/agenda_bella",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    }
+  ],
+  "topic_permissions": [],
+  "parameters": [],
+  "global_parameters": [
+    {
+      "name": "cluster_name",
+      "value": "agenda-bella-dev"
+    }
+  ],
+  "policies": [
+    {
+      "vhost": "/agenda_bella",
+      "name": "default-ha-policy",
+      "pattern": ".*",
+      "apply-to": "all",
+      "definition": {
+        "message-ttl": 86400000,
+        "max-length": 10000
+      },
+      "priority": 0
+    }
+  ],
+  "queues": [
+    {
+      "name": "notifications.email",
+      "vhost": "/agenda_bella",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 86400000,
+        "x-max-retries": 3
+      }
+    },
+    {
+      "name": "notifications.sms",
+      "vhost": "/agenda_bella",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 86400000,
+        "x-max-retries": 3
+      }
+    },
+    {
+      "name": "notifications.push",
+      "vhost": "/agenda_bella",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 86400000,
+        "x-max-retries": 3
+      }
+    },
+    {
+      "name": "payments.process",
+      "vhost": "/agenda_bella",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 3600000,
+        "x-max-retries": 5
+      }
+    },
+    {
+      "name": "payments.escrow",
+      "vhost": "/agenda_bella",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 86400000,
+        "x-max-retries": 3
+      }
+    },
+    {
+      "name": "audit.logs",
+      "vhost": "/agenda_bella",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 604800000,
+        "x-max-length": 50000
+      }
+    },
+    {
+      "name": "appointments.reminders",
+      "vhost": "/agenda_bella",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 86400000,
+        "x-max-retries": 3
+      }
+    },
+    {
+      "name": "appointments.confirmations",
+      "vhost": "/agenda_bella",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 86400000,
+        "x-max-retries": 3
+      }
+    },
+    {
+      "name": "websocket.events",
+      "vhost": "/agenda_bella",
+      "durable": false,
+      "auto_delete": true,
+      "arguments": {
+        "x-message-ttl": 60000
+      }
+    },
+    {
+      "name": "dead_letter",
+      "vhost": "/agenda_bella",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    }
+  ],
+  "exchanges": [
+    {
+      "name": "agenda_bella.events",
+      "vhost": "/agenda_bella",
+      "type": "topic",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "agenda_bella.notifications",
+      "vhost": "/agenda_bella",
+      "type": "direct",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "agenda_bella.payments",
+      "vhost": "/agenda_bella",
+      "type": "direct",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "agenda_bella.audit",
+      "vhost": "/agenda_bella",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "agenda_bella.websocket",
+      "vhost": "/agenda_bella",
+      "type": "fanout",
+      "durable": false,
+      "auto_delete": true,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "dead_letter_exchange",
+      "vhost": "/agenda_bella",
+      "type": "direct",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    }
+  ],
+  "bindings": [
+    {
+      "source": "agenda_bella.notifications",
+      "vhost": "/agenda_bella",
+      "destination": "notifications.email",
+      "destination_type": "queue",
+      "routing_key": "email",
+      "arguments": {}
+    },
+    {
+      "source": "agenda_bella.notifications",
+      "vhost": "/agenda_bella",
+      "destination": "notifications.sms",
+      "destination_type": "queue",
+      "routing_key": "sms",
+      "arguments": {}
+    },
+    {
+      "source": "agenda_bella.notifications",
+      "vhost": "/agenda_bella",
+      "destination": "notifications.push",
+      "destination_type": "queue",
+      "routing_key": "push",
+      "arguments": {}
+    },
+    {
+      "source": "agenda_bella.payments",
+      "vhost": "/agenda_bella",
+      "destination": "payments.process",
+      "destination_type": "queue",
+      "routing_key": "process",
+      "arguments": {}
+    },
+    {
+      "source": "agenda_bella.payments",
+      "vhost": "/agenda_bella",
+      "destination": "payments.escrow",
+      "destination_type": "queue",
+      "routing_key": "escrow",
+      "arguments": {}
+    },
+    {
+      "source": "agenda_bella.audit",
+      "vhost": "/agenda_bella",
+      "destination": "audit.logs",
+      "destination_type": "queue",
+      "routing_key": "",
+      "arguments": {}
+    },
+    {
+      "source": "agenda_bella.events",
+      "vhost": "/agenda_bella",
+      "destination": "appointments.reminders",
+      "destination_type": "queue",
+      "routing_key": "appointment.reminder.*",
+      "arguments": {}
+    },
+    {
+      "source": "agenda_bella.events",
+      "vhost": "/agenda_bella",
+      "destination": "appointments.confirmations",
+      "destination_type": "queue",
+      "routing_key": "appointment.confirmation.*",
+      "arguments": {}
+    },
+    {
+      "source": "agenda_bella.websocket",
+      "vhost": "/agenda_bella",
+      "destination": "websocket.events",
+      "destination_type": "queue",
+      "routing_key": "",
+      "arguments": {}
+    },
+    {
+      "source": "dead_letter_exchange",
+      "vhost": "/agenda_bella",
+      "destination": "dead_letter",
+      "destination_type": "queue",
+      "routing_key": "dead_letter",
+      "arguments": {}
+    }
+  ]
+}
