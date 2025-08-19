@@ -1,0 +1,19 @@
+{
+  "name": "@agenda-bella/typescript",
+  "version": "0.1.0",
+  "description": "Shared TypeScript configurations for Agenda Bella monorepo",
+  "main": "./base.json",
+  "files": [
+    "*.json"
+  ],
+  "scripts": {
+    "build": "echo 'No build needed for TypeScript configs'",
+    "validate": "tsc --noEmit --project base.json"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.9",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "typescript": "^5.2.2"
+  }
+}
