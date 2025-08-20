@@ -1,0 +1,17 @@
+{
+  "extends": "../typescript/express.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "tsBuildInfoFile": "./dist/.tsbuildinfo",
+    "paths": {
+      "@agenda-bella/shared": ["../shared/src"],
+      "@agenda-bella/database": ["../database/src"],
+      "@agenda-bella/security": ["../security/src"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"]
+}

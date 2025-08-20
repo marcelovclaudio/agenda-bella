@@ -1,9 +1,11 @@
 # API Backend
 
 ## Overview
+
 Backend API server for Agenda Bella marketplace. Built with Express.js and TypeScript, providing RESTful APIs and WebSocket support for real-time features.
 
 ## Technology Stack
+
 - **Framework**: Express.js with TypeScript
 - **Database**: PostgreSQL with Prisma ORM
 - **Cache**: Redis for session storage and caching
@@ -13,6 +15,7 @@ Backend API server for Agenda Bella marketplace. Built with Express.js and TypeS
 - **Documentation**: OpenAPI/Swagger documentation
 
 ## Features
+
 - RESTful API endpoints
 - Real-time WebSocket connections
 - User authentication and authorization
@@ -26,6 +29,7 @@ Backend API server for Agenda Bella marketplace. Built with Express.js and TypeS
 - Comprehensive logging and monitoring
 
 ## API Modules
+
 - **Auth**: Authentication and user management
 - **Clinics**: Clinic profiles and services
 - **Appointments**: Booking and scheduling
@@ -35,6 +39,7 @@ Backend API server for Agenda Bella marketplace. Built with Express.js and TypeS
 - **Analytics**: Platform metrics and reporting
 
 ## Development
+
 ```bash
 # Install dependencies
 pnpm install
@@ -56,6 +61,7 @@ pnpm db:generate
 ```
 
 ## Environment Variables
+
 - `DATABASE_URL`: PostgreSQL connection string
 - `REDIS_URL`: Redis connection string
 - `RABBITMQ_URL`: RabbitMQ connection string

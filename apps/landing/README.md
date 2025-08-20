@@ -1,9 +1,11 @@
 # Landing Page
 
 ## Overview
+
 High-performance marketing landing page for Agenda Bella. Built with Next.js 14+ optimized for SEO, Core Web Vitals, and conversion optimization.
 
 ## Technology Stack
+
 - **Framework**: Next.js 14+ with App Router
 - **Rendering**: Static Site Generation (SSG) with Incremental Static Regeneration (ISR)
 - **Styling**: Tailwind CSS with performance-optimized components
@@ -11,6 +13,7 @@ High-performance marketing landing page for Agenda Bella. Built with Next.js 14+
 - **SEO**: Advanced meta tags, structured data, and sitemap generation
 
 ## Features
+
 - Landing page with hero section
 - Service showcase and benefits
 - Clinic directory preview
@@ -23,18 +26,21 @@ High-performance marketing landing page for Agenda Bella. Built with Next.js 14+
 - Advanced performance optimization
 
 ## Performance Targets
+
 - **Core Web Vitals**: LCP < 2.5s, FID < 100ms, CLS < 0.1
 - **Lighthouse Score**: 95+ for all metrics
 - **SEO Score**: 100/100
 - **Bundle Size**: < 100KB initial load
 
 ## Target Users
+
 - Potential customers discovering the platform
 - Clinic owners interested in joining
 - SEO traffic from beauty and aesthetic searches
 - Social media and advertising traffic
 
 ## Development
+
 ```bash
 # Install dependencies
 pnpm install
@@ -53,6 +59,7 @@ pnpm sitemap
 ```
 
 ## Environment Variables
+
 - `NEXT_PUBLIC_SITE_URL`: Site URL for sitemap and SEO
 - `NEXT_PUBLIC_GA_ID`: Google Analytics tracking ID
 - `NEXT_PUBLIC_GTM_ID`: Google Tag Manager ID

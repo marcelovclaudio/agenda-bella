@@ -8,7 +8,6 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
@@ -64,9 +63,7 @@
     "assumeChangesOnlyAffectDirectDependencies": true,
     "declaration": false,
     "declarationMap": false,
-    "sourceMap": true,
-    "preserveValueImports": true,
-    "importsNotUsedAsValues": "remove"
+    "sourceMap": true
   },
   "include": [
     "src/**/*",

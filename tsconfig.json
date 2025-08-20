@@ -1,0 +1,24 @@
+{
+  "extends": "./packages/typescript/base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@agenda-bella/api": ["./packages/api/src"],
+      "@agenda-bella/audit": ["./packages/audit/src"],
+      "@agenda-bella/database": ["./packages/database/src"],
+      "@agenda-bella/security": ["./packages/security/src"],
+      "@agenda-bella/shared": ["./packages/shared/src"],
+      "@agenda-bella/ui": ["./packages/ui/src"]
+    }
+  },
+  "include": ["*.config.js", "*.config.mjs"],
+  "files": [],
+  "references": [
+    { "path": "./packages/api" },
+    { "path": "./packages/audit" },
+    { "path": "./packages/database" },
+    { "path": "./packages/security" },
+    { "path": "./packages/shared" },
+    { "path": "./packages/ui" }
+  ]
+}

@@ -86,13 +86,7 @@
     "preserveValueImports": true,
     "verbatimModuleSyntax": false
   },
-  "include": [
-    "src/**/*",
-    "src/**/*.ts",
-    "src/**/*.js",
-    "**/*.d.ts",
-    "types/**/*.d.ts"
-  ],
+  "include": ["src/**/*", "src/**/*.ts", "src/**/*.js", "**/*.d.ts", "types/**/*.d.ts"],
   "exclude": [
     "node_modules",
     "dist",

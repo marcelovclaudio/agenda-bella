@@ -1,0 +1,26 @@
+{
+  "extends": "../typescript/vite.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "tsBuildInfoFile": "./dist/.tsbuildinfo",
+    "declaration": true,
+    "declarationMap": true,
+    "jsx": "react-jsx",
+    "noEmit": false,
+    "paths": {
+      "@agenda-bella/shared": ["../shared/src"]
+    }
+  },
+  "include": ["src/**/*", "**/*.tsx", "**/*.ts"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
+  ]
+}

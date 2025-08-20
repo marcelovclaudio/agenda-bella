@@ -5,17 +5,19 @@ This directory contains Docker configurations for running Agenda Bella's develop
 ## Services
 
 ### PostgreSQL
+
 - **Port**: 5432
 - **Database**: `agenda_bella_dev`
 - **Username**: `agenda_bella`
 - **Password**: `agenda_bella_dev_password`
-- **Features**: 
+- **Features**:
   - Pre-configured schema with tables for users, clinics, appointments, payments, and audit logs
   - Sample data for development
   - LGPD compliance audit trails
   - Optimized indexes for performance
 
 ### Redis
+
 - **Port**: 6379
 - **Features**:
   - Session storage
@@ -25,6 +27,7 @@ This directory contains Docker configurations for running Agenda Bella's develop
   - Keyspace notifications for session expiration
 
 ### RabbitMQ
+
 - **AMQP Port**: 5672
 - **Management UI**: http://localhost:15672
 - **Username**: `agenda_bella`
@@ -41,6 +44,7 @@ This directory contains Docker configurations for running Agenda Bella's develop
 ## Quick Start
 
 ### Prerequisites
+
 - Docker
 - Docker Compose
 
@@ -70,6 +74,7 @@ docker-compose -f docker/docker-compose.dev.yml down
 ## Configuration Files
 
 ### PostgreSQL
+
 - `postgres/init.sql` - Database schema and sample data
 - Schema includes:
   - Users and authentication
@@ -80,6 +85,7 @@ docker-compose -f docker/docker-compose.dev.yml down
   - Session backup tables
 
 ### Redis
+
 - `redis/redis.conf` - Redis configuration optimized for development
 - Features:
   - Both RDB and AOF persistence
@@ -88,6 +94,7 @@ docker-compose -f docker/docker-compose.dev.yml down
   - Slow query logging
 
 ### RabbitMQ
+
 - `rabbitmq/rabbitmq.conf` - RabbitMQ server configuration
 - `rabbitmq/definitions.json` - Exchanges, queues, and bindings
 - Queue structure:
@@ -106,6 +113,7 @@ cp docker/.env.example docker/.env
 ```
 
 Key variables:
+
 - Database connection strings
 - Redis configuration
 - RabbitMQ settings

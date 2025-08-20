@@ -1,9 +1,11 @@
 # UI Package
 
 ## Overview
+
 Shared UI component library for Agenda Bella applications. Built with React, Tailwind CSS, and modern component patterns to ensure consistency across all applications.
 
 ## Technology Stack
+
 - **Framework**: React 18 with TypeScript
 - **Styling**: Tailwind CSS with CSS-in-JS support
 - **Component Library**: shadcn/ui + Radix UI primitives
@@ -12,6 +14,7 @@ Shared UI component library for Agenda Bella applications. Built with React, Tai
 - **Documentation**: Storybook for component documentation
 
 ## Components
+
 - **Forms**: Input, Select, Checkbox, Radio, DatePicker, FormField
 - **Navigation**: Button, Link, Breadcrumb, Pagination, Tabs
 - **Layout**: Container, Grid, Stack, Card, Modal, Sidebar
@@ -20,6 +23,7 @@ Shared UI component library for Agenda Bella applications. Built with React, Tai
 - **Business**: AppointmentCard, ClinicCard, ServiceCard, ReviewCard
 
 ## Design System
+
 - **Colors**: Primary, secondary, neutral, and semantic color palettes
 - **Typography**: Heading and body text scales with proper line heights
 - **Spacing**: Consistent spacing scale based on 4px grid
@@ -27,6 +31,7 @@ Shared UI component library for Agenda Bella applications. Built with React, Tai
 - **Shadows**: Elevation system with consistent shadow patterns
 
 ## Usage
+
 ```bash
 # Install the package
 pnpm add @agenda-bella/ui
@@ -36,6 +41,7 @@ import { Button, Card, Input } from '@agenda-bella/ui'
 ```
 
 ## Development
+
 ```bash
 # Install dependencies
 pnpm install
@@ -54,4 +60,5 @@ pnpm lint
 ```
 
 ## Theming
+
 The UI package supports theme customization through CSS custom properties and Tailwind CSS configuration. Each application can override colors, fonts, and spacing while maintaining component consistency.

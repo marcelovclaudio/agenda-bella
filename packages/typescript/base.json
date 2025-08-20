@@ -19,12 +19,10 @@
     "isolatedModules": true,
     "noEmit": false,
     "preserveConstEnums": true,
-    "importsNotUsedAsValues": "error",
-    "preserveValueImports": true,
+    "verbatimModuleSyntax": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "verbatimModuleSyntax": false,
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
@@ -71,14 +69,7 @@
     },
     "assumeChangesOnlyAffectDirectDependencies": true
   },
-  "include": [
-    "src/**/*",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js",
-    "**/*.jsx",
-    "**/*.d.ts"
-  ],
+  "include": ["src/**/*", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.d.ts"],
   "exclude": [
     "node_modules",
     "dist",

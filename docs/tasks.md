@@ -1,13 +1,29 @@
 # Tasks para Implementação do Monorepo Agenda Bella
 
 ## Visão Geral
+
 Este documento detalha todas as tarefas necessárias para implementar o monorepo com a estrutura definida. Cada task possui um ID único para atribuição e rastreamento.
+
+**Como usar**: Marque as checkboxes `- [ ]` como `- [x]` quando a task estiver concluída.
+
+## Status Geral
+
+- **Fase 1 (Setup Base)**: 1/5 ✅
+- **Fase 2 (Packages de Segurança)**: 0/10 ⏳
+- **Fase 3 (Packages Core)**: 0/8 ⏳
+- **Fase 4 (UI System)**: 0/6 ⏳
+- **Fase 5 (API Backend)**: 0/8 ⏳
+- **Fase 6 (Apps Frontend)**: 0/12 ⏳
+- **Fase 7 (DevOps)**: 0/6 ⏳
+
+**Total**: 1/55 tarefas concluídas (1.8%)
 
 ---
 
 ## Fase 1: Setup Base (Infraestrutura)
 
-### SETUP-001: Inicializar Monorepo com pnpm e Turborepo
+### - [x] SETUP-001: Inicializar Monorepo com pnpm e Turborepo
+
 - **Dependências**: Nenhuma
 - **Tempo estimado**: 2h
 - **Descrição**: Configurar a estrutura base do monorepo
@@ -27,7 +43,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   pnpm add -D turbo
   ```
 
-### SETUP-002: Configurar Docker Compose para Desenvolvimento
+### - [x] SETUP-002: Configurar Docker Compose para Desenvolvimento
+
 - **Dependências**: SETUP-001
 - **Tempo estimado**: 3h
 - **Descrição**: Configurar containers de desenvolvimento
@@ -45,7 +62,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   docker-compose -f docker/docker-compose.dev.yml up -d
   ```
 
-### SETUP-003: Configurar Estrutura de Diretórios
+### - [x] SETUP-003: Configurar Estrutura de Diretórios
+
 - **Dependências**: SETUP-001
 - **Tempo estimado**: 1h
 - **Descrição**: Criar toda a estrutura de pastas do monorepo
@@ -56,7 +74,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/web/`, `apps/admin/`, `apps/clinic/`, `apps/api/`, `apps/landing/`
   - `packages/ui/`, `packages/typescript/`, `packages/database/`, `packages/api/`, `packages/security/`, `packages/audit/`, `packages/shared/`
 
-### SETUP-004: Configurar TypeScript Base
+### - [x] SETUP-004: Configurar TypeScript Base
+
 - **Dependências**: SETUP-003
 - **Tempo estimado**: 2h
 - **Descrição**: Configurações TypeScript compartilhadas
@@ -69,7 +88,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/typescript/vite.json`
   - `packages/typescript/express.json`
 
-### SETUP-005: Configurar ESLint e Prettier
+### - [ ] SETUP-005: Configurar ESLint e Prettier
+
 - **Dependências**: SETUP-004
 - **Tempo estimado**: 2h
 - **Descrição**: Configurar linting e formatação uniformes
@@ -86,7 +106,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
 
 ## Fase 2: Packages de Segurança
 
-### SEC-001: Setup Package Security Base
+### - [ ] SEC-001: Setup Package Security Base
+
 - **Dependências**: SETUP-004
 - **Tempo estimado**: 4h
 - **Descrição**: Inicializar package de segurança com estrutura base
@@ -99,7 +120,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/security/src/index.ts`
   - `packages/security/src/types/`
 
-### SEC-002: Implementar Autenticação JWT
+### - [ ] SEC-002: Implementar Autenticação JWT
+
 - **Dependências**: SEC-001, CORE-001
 - **Tempo estimado**: 6h
 - **Descrição**: Sistema completo de autenticação com JWT
@@ -113,7 +135,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/security/src/auth/refresh.ts`
   - `packages/security/src/auth/types.ts`
 
-### SEC-003: Implementar Sistema ACL com CASL
+### - [ ] SEC-003: Implementar Sistema ACL com CASL
+
 - **Dependências**: SEC-001
 - **Tempo estimado**: 8h
 - **Descrição**: Sistema de autorização baseado em CASL
@@ -127,7 +150,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/security/src/acl/types.ts`
   - `packages/security/src/acl/utils.ts`
 
-### SEC-004: Implementar Rate Limiting
+### - [ ] SEC-004: Implementar Rate Limiting
+
 - **Dependências**: SEC-001, CORE-002
 - **Tempo estimado**: 3h
 - **Descrição**: Sistema de rate limiting com Redis
@@ -140,7 +164,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/security/src/rateLimit/strategies.ts`
   - `packages/security/src/rateLimit/middleware.ts`
 
-### SEC-005: Implementar Password Security
+### - [ ] SEC-005: Implementar Password Security
+
 - **Dependências**: SEC-001
 - **Tempo estimado**: 3h
 - **Descrição**: Utilitários para segurança de senhas
@@ -153,7 +178,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/security/src/password/policies.ts`
   - `packages/security/src/password/generator.ts`
 
-### SEC-006: Setup Package Audit Base
+### - [ ] SEC-006: Setup Package Audit Base
+
 - **Dependências**: SETUP-004, CORE-001
 - **Tempo estimado**: 4h
 - **Descrição**: Inicializar package de auditoria
@@ -166,7 +192,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/audit/src/types/`
   - `packages/audit/prisma/schema.prisma`
 
-### SEC-007: Implementar Audit Trail
+### - [ ] SEC-007: Implementar Audit Trail
+
 - **Dependências**: SEC-006, CORE-002
 - **Tempo estimado**: 6h
 - **Descrição**: Sistema de logs de auditoria
@@ -179,7 +206,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/audit/src/trail/decorators.ts`
   - `packages/audit/src/trail/queries.ts`
 
-### SEC-008: Implementar LGPD Compliance
+### - [ ] SEC-008: Implementar LGPD Compliance
+
 - **Dependências**: SEC-006
 - **Tempo estimado**: 5h
 - **Descrição**: Sistema de compliance LGPD
@@ -192,7 +220,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/audit/src/lgpd/consent.ts`
   - `packages/audit/src/lgpd/anonymize.ts`
 
-### SEC-009: Implementar Sistema de Relatórios
+### - [ ] SEC-009: Implementar Sistema de Relatórios
+
 - **Dependências**: SEC-007, SEC-008
 - **Tempo estimado**: 4h
 - **Descrição**: Geração de relatórios de auditoria
@@ -205,7 +234,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/audit/src/reports/exporters.ts`
   - `packages/audit/src/reports/dashboard.ts`
 
-### SEC-010: Implementar Retention Policies
+### - [ ] SEC-010: Implementar Retention Policies
+
 - **Dependências**: SEC-006
 - **Tempo estimado**: 3h
 - **Descrição**: Políticas de retenção de logs
@@ -222,7 +252,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
 
 ## Fase 3: Packages Core
 
-### CORE-001: Setup Package Database
+### - [ ] CORE-001: Setup Package Database
+
 - **Dependências**: SETUP-002, SETUP-004
 - **Tempo estimado**: 5h
 - **Descrição**: Configurar Prisma com PostgreSQL, Redis e RabbitMQ
@@ -237,7 +268,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/database/src/redis.ts`
   - `packages/database/src/rabbitmq.ts`
 
-### CORE-002: Implementar Database Models
+### - [ ] CORE-002: Implementar Database Models
+
 - **Dependências**: CORE-001
 - **Tempo estimado**: 6h
 - **Descrição**: Criar models principais do sistema
@@ -251,7 +283,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/database/src/models/appointment.ts`
   - `packages/database/src/models/clinic.ts`
 
-### CORE-003: Setup Package Shared
+### - [ ] CORE-003: Setup Package Shared
+
 - **Dependências**: SETUP-004
 - **Tempo estimado**: 4h
 - **Descrição**: Package com utilitários compartilhados
@@ -265,7 +298,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/shared/src/hooks/`
   - `packages/shared/src/utils/`
 
-### CORE-004: Implementar Logger System
+### - [ ] CORE-004: Implementar Logger System
+
 - **Dependências**: CORE-003, CORE-002
 - **Tempo estimado**: 3h
 - **Descrição**: Sistema de logging estruturado
@@ -278,7 +312,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/shared/src/logger/formatters.ts`
   - `packages/shared/src/logger/middleware.ts`
 
-### CORE-005: Implementar Utils Compartilhados
+### - [ ] CORE-005: Implementar Utils Compartilhados
+
 - **Dependências**: CORE-003
 - **Tempo estimado**: 4h
 - **Descrição**: Utilitários comuns entre apps
@@ -291,7 +326,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/shared/src/utils/formatters.ts`
   - `packages/shared/src/utils/sanitizers.ts`
 
-### CORE-006: Setup Package API
+### - [ ] CORE-006: Setup Package API
+
 - **Dependências**: SETUP-004
 - **Tempo estimado**: 3h
 - **Descrição**: Package com services e validações da API
@@ -304,7 +340,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/api/src/schemas/`
   - `packages/api/src/services/`
 
-### CORE-007: Implementar API Services
+### - [ ] CORE-007: Implementar API Services
+
 - **Dependências**: CORE-006, CORE-001
 - **Tempo estimado**: 8h
 - **Descrição**: Services principais da aplicação
@@ -317,7 +354,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/api/src/services/appointment.service.ts`
   - `packages/api/src/services/clinic.service.ts`
 
-### CORE-008: Implementar Validações Zod
+### - [ ] CORE-008: Implementar Validações Zod
+
 - **Dependências**: CORE-006
 - **Tempo estimado**: 5h
 - **Descrição**: Schemas de validação com Zod
@@ -334,7 +372,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
 
 ## Fase 4: UI System
 
-### UI-001: Setup Package UI Base
+### - [ ] UI-001: Setup Package UI Base
+
 - **Dependências**: SETUP-004
 - **Tempo estimado**: 4h
 - **Descrição**: Inicializar sistema de design
@@ -348,7 +387,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/ui/postcss.config.js`
   - `packages/ui/src/styles/globals.css`
 
-### UI-002: Configurar shadcn/ui
+### - [ ] UI-002: Configurar shadcn/ui
+
 - **Dependências**: UI-001
 - **Tempo estimado**: 3h
 - **Descrição**: Integrar shadcn/ui components
@@ -361,7 +401,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/ui/src/lib/utils.ts`
   - `packages/ui/components.json`
 
-### UI-003: Criar Design Tokens
+### - [ ] UI-003: Criar Design Tokens
+
 - **Dependências**: UI-001
 - **Tempo estimado**: 3h
 - **Descrição**: Sistema de design tokens
@@ -374,7 +415,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/ui/src/tokens/spacing.ts`
   - `packages/ui/src/tokens/typography.ts`
 
-### UI-004: Implementar Componentes Base
+### - [ ] UI-004: Implementar Componentes Base
+
 - **Dependências**: UI-002, UI-003
 - **Tempo estimado**: 8h
 - **Descrição**: Componentes fundamentais do sistema
@@ -388,7 +430,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/ui/src/components/Card/`
   - `packages/ui/src/components/Modal/`
 
-### UI-005: Implementar Componentes de Segurança
+### - [ ] UI-005: Implementar Componentes de Segurança
+
 - **Dependências**: UI-004, SEC-003
 - **Tempo estimado**: 6h
 - **Descrição**: Componentes específicos para autenticação/autorização
@@ -401,7 +444,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/ui/src/components/auth/PermissionGate/`
   - `packages/ui/src/components/auth/ProtectedRoute/`
 
-### UI-006: Configurar Storybook
+### - [ ] UI-006: Configurar Storybook
+
 - **Dependências**: UI-004, UI-005
 - **Tempo estimado**: 4h
 - **Descrição**: Documentação de componentes
@@ -417,7 +461,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
 
 ## Fase 5: API Backend
 
-### API-001: Setup App API Base
+### - [ ] API-001: Setup App API Base
+
 - **Dependências**: SETUP-004, CORE-001
 - **Tempo estimado**: 4h
 - **Descrição**: Inicializar aplicação Express
@@ -431,7 +476,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/api/src/server.ts`
   - `apps/api/src/config/`
 
-### API-002: Configurar Middlewares de Segurança
+### - [ ] API-002: Configurar Middlewares de Segurança
+
 - **Dependências**: API-001, SEC-002, SEC-004
 - **Tempo estimado**: 5h
 - **Descrição**: Integrar middlewares de segurança
@@ -444,7 +490,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/api/src/middleware/auth.ts`
   - `apps/api/src/middleware/rateLimit.ts`
 
-### API-003: Implementar Sistema de Rotas
+### - [ ] API-003: Implementar Sistema de Rotas
+
 - **Dependências**: API-001, CORE-007
 - **Tempo estimado**: 6h
 - **Descrição**: Estrutura de rotas da API
@@ -458,7 +505,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/api/src/routes/appointments.ts`
   - `apps/api/src/routes/clinics.ts`
 
-### API-004: Integrar Auditoria Automática
+### - [ ] API-004: Integrar Auditoria Automática
+
 - **Dependências**: API-003, SEC-007
 - **Tempo estimado**: 4h
 - **Descrição**: Auditoria automática em endpoints
@@ -470,7 +518,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/api/src/middleware/audit.ts`
   - `apps/api/src/decorators/auditable.ts`
 
-### API-005: Implementar WebSocket
+### - [ ] API-005: Implementar WebSocket
+
 - **Dependências**: API-001, SEC-002
 - **Tempo estimado**: 5h
 - **Descrição**: Real-time features com WebSocket
@@ -483,7 +532,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/api/src/websocket/handlers/`
   - `apps/api/src/websocket/auth.ts`
 
-### API-006: Configurar Validação de Requests
+### - [ ] API-006: Configurar Validação de Requests
+
 - **Dependências**: API-003, CORE-008
 - **Tempo estimado**: 3h
 - **Descrição**: Validação automática com Zod
@@ -495,7 +545,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/api/src/middleware/validation.ts`
   - `apps/api/src/utils/errorHandler.ts`
 
-### API-007: Implementar Background Jobs
+### - [ ] API-007: Implementar Background Jobs
+
 - **Dependências**: API-001, CORE-001
 - **Tempo estimado**: 6h
 - **Descrição**: Sistema de filas com RabbitMQ
@@ -508,7 +559,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/api/src/jobs/processors/`
   - `apps/api/src/jobs/scheduler.ts`
 
-### API-008: Configurar Health Checks
+### - [ ] API-008: Configurar Health Checks
+
 - **Dependências**: API-001
 - **Tempo estimado**: 2h
 - **Descrição**: Endpoints de saúde da aplicação
@@ -524,7 +576,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
 
 ## Fase 6: Apps Frontend
 
-### APP-001: Setup App Web (Next.js)
+### - [ ] APP-001: Setup App Web (Next.js)
+
 - **Dependências**: UI-004, API-003
 - **Tempo estimado**: 5h
 - **Descrição**: Aplicação Next.js principal
@@ -538,7 +591,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/web/src/app/layout.tsx`
   - `apps/web/src/app/page.tsx`
 
-### APP-002: Setup App Admin (Vite)
+### - [ ] APP-002: Setup App Admin (Vite)
+
 - **Dependências**: UI-004, API-003
 - **Tempo estimado**: 4h
 - **Descrição**: Dashboard administrativo com Vite
@@ -552,7 +606,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/admin/src/main.tsx`
   - `apps/admin/src/App.tsx`
 
-### APP-003: Setup App Clinic (Vite)
+### - [ ] APP-003: Setup App Clinic (Vite)
+
 - **Dependências**: UI-004, API-003
 - **Tempo estimado**: 4h
 - **Descrição**: App de gestão da clínica
@@ -566,7 +621,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/clinic/src/main.tsx`
   - `apps/clinic/src/App.tsx`
 
-### APP-004: Setup App Landing (Next.js)
+### - [ ] APP-004: Setup App Landing (Next.js)
+
 - **Dependências**: UI-004
 - **Tempo estimado**: 3h
 - **Descrição**: Landing page otimizada
@@ -579,7 +635,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/landing/next.config.js`
   - `apps/landing/src/app/page.tsx`
 
-### APP-005: Implementar Autenticação nos Apps
+### - [ ] APP-005: Implementar Autenticação nos Apps
+
 - **Dependências**: APP-001, APP-002, APP-003, SEC-002
 - **Tempo estimado**: 8h
 - **Descrição**: Sistema de auth integrado
@@ -592,7 +649,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/admin/src/contexts/AuthContext.tsx`
   - `apps/clinic/src/contexts/AuthContext.tsx`
 
-### APP-006: Implementar Autorização com ACL
+### - [ ] APP-006: Implementar Autorização com ACL
+
 - **Dependências**: APP-005, SEC-003, UI-005
 - **Tempo estimado**: 6h
 - **Descrição**: Sistema de permissões integrado
@@ -605,7 +663,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/admin/src/guards/PermissionGuard.tsx`
   - `apps/clinic/src/guards/RoleGuard.tsx`
 
-### APP-007: Configurar Estado Global
+### - [ ] APP-007: Configurar Estado Global
+
 - **Dependências**: APP-001, APP-002, APP-003
 - **Tempo estimado**: 5h
 - **Descrição**: Gerenciamento de estado com Zustand
@@ -618,7 +677,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/admin/src/stores/userStore.ts`
   - `apps/clinic/src/stores/appStore.ts`
 
-### APP-008: Implementar API Integration
+### - [ ] APP-008: Implementar API Integration
+
 - **Dependências**: APP-007, API-003
 - **Tempo estimado**: 6h
 - **Descrição**: Integração com API usando TanStack Query
@@ -631,7 +691,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/admin/src/hooks/api/`
   - `apps/clinic/src/services/api.ts`
 
-### APP-009: Implementar Real-time Features
+### - [ ] APP-009: Implementar Real-time Features
+
 - **Dependências**: APP-008, API-005
 - **Tempo estimado**: 4h
 - **Descrição**: WebSocket integration
@@ -644,7 +705,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/admin/src/services/socket.ts`
   - `apps/clinic/src/contexts/SocketContext.tsx`
 
-### APP-010: Implementar Audit Logging nos Apps
+### - [ ] APP-010: Implementar Audit Logging nos Apps
+
 - **Dependências**: APP-008, SEC-007
 - **Tempo estimado**: 4h
 - **Descrição**: Tracking de ações do usuário
@@ -657,7 +719,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/admin/src/utils/auditLogger.ts`
   - `apps/clinic/src/hooks/useActivity.ts`
 
-### APP-011: Configurar SEO e Performance
+### - [ ] APP-011: Configurar SEO e Performance
+
 - **Dependências**: APP-001, APP-004
 - **Tempo estimado**: 5h
 - **Descrição**: Otimizações Next.js
@@ -669,7 +732,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/web/src/components/SEO.tsx`
   - `apps/landing/src/utils/seo.ts`
 
-### APP-012: Implementar Error Boundaries
+### - [ ] APP-012: Implementar Error Boundaries
+
 - **Dependências**: APP-001, APP-002, APP-003
 - **Tempo estimado**: 3h
 - **Descrição**: Error handling robusto
@@ -686,7 +750,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
 
 ## Fase 7: DevOps e Deploy
 
-### DEVOPS-001: Configurar Docker para Produção
+### - [ ] DEVOPS-001: Configurar Docker para Produção
+
 - **Dependências**: SETUP-002, API-008, APP-011
 - **Tempo estimado**: 6h
 - **Descrição**: Containers otimizados para produção
@@ -700,7 +765,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `docker/Dockerfile.admin`
   - `docker/docker-compose.prod.yml`
 
-### DEVOPS-002: Configurar GitHub Actions
+### - [ ] DEVOPS-002: Configurar GitHub Actions
+
 - **Dependências**: DEVOPS-001
 - **Tempo estimado**: 8h
 - **Descrição**: CI/CD pipelines completos
@@ -714,7 +780,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `.github/workflows/deploy-production.yml`
   - `.github/workflows/security-scan.yml`
 
-### DEVOPS-003: Configurar Monitoring
+### - [ ] DEVOPS-003: Configurar Monitoring
+
 - **Dependências**: API-008, APP-008
 - **Tempo estimado**: 5h
 - **Descrição**: Monitoring e observabilidade
@@ -726,7 +793,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `apps/api/src/monitoring/apm.ts`
   - `apps/web/src/utils/analytics.ts`
 
-### DEVOPS-004: Configurar Backup Automático
+### - [ ] DEVOPS-004: Configurar Backup Automático
+
 - **Dependências**: CORE-001, SEC-010
 - **Tempo estimado**: 4h
 - **Descrição**: Backup de dados e logs
@@ -739,7 +807,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `scripts/backup-audit-logs.sh`
   - `scripts/restore-database.sh`
 
-### DEVOPS-005: Configurar Secrets Management
+### - [ ] DEVOPS-005: Configurar Secrets Management
+
 - **Dependências**: DEVOPS-002
 - **Tempo estimado**: 3h
 - **Descrição**: Gestão segura de secrets
@@ -751,7 +820,8 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `.env.example` (para cada app)
   - `docs/secrets-management.md`
 
-### DEVOPS-006: Documentação Final
+### - [ ] DEVOPS-006: Documentação Final
+
 - **Dependências**: Todas as fases anteriores
 - **Tempo estimado**: 4h
 - **Descrição**: Documentação completa do projeto
@@ -790,6 +860,7 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
 ## Critérios de Aceitação
 
 Cada task deve ser considerada completa quando:
+
 - [ ] Código implementado e testado
 - [ ] Testes unitários passando
 - [ ] Linting e type checking sem erros

@@ -1,9 +1,11 @@
 # Clinic Management Application
 
 ## Overview
+
 Dedicated clinic management application for healthcare providers and aesthetic clinics. Built as a Single Page Application (SPA) using Vite and React for optimal clinic workflow management.
 
 ## Technology Stack
+
 - **Framework**: Vite + React 18
 - **Architecture**: Single Page Application (SPA)
 - **Styling**: Tailwind CSS with shared UI components
@@ -11,6 +13,7 @@ Dedicated clinic management application for healthcare providers and aesthetic c
 - **Real-time**: WebSocket integration for live notifications
 
 ## Features
+
 - Clinic profile management
 - Service catalog and pricing
 - Appointment scheduling and calendar
@@ -23,18 +26,21 @@ Dedicated clinic management application for healthcare providers and aesthetic c
 - Real-time notifications
 
 ## Target Users
+
 - Clinic owners and managers
 - Medical practitioners
 - Administrative staff
 - Receptionists
 
 ## User Roles
+
 - Clinic Owner: Full clinic management access
 - Manager: Operations and staff management
 - Practitioner: Appointment and patient management
 - Staff: Limited access to scheduling and patients
 
 ## Development
+
 ```bash
 # Install dependencies
 pnpm install
@@ -50,6 +56,7 @@ pnpm preview
 ```
 
 ## Environment Variables
+
 - `VITE_API_URL`: Backend API endpoint
 - `VITE_WS_URL`: WebSocket server endpoint
 - `VITE_APP_ENV`: Application environment

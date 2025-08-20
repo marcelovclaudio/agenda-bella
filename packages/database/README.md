@@ -1,9 +1,11 @@
 # Database Package
 
 ## Overview
+
 Comprehensive database layer for Agenda Bella marketplace. Includes Prisma ORM schemas, database models, migrations, and connections to PostgreSQL, Redis, and RabbitMQ.
 
 ## Technology Stack
+
 - **ORM**: Prisma with PostgreSQL
 - **Cache**: Redis for session storage and caching
 - **Message Queue**: RabbitMQ for background job processing
@@ -11,6 +13,7 @@ Comprehensive database layer for Agenda Bella marketplace. Includes Prisma ORM s
 - **Connection Pooling**: pgBouncer-ready configuration
 
 ## Database Schema
+
 - **Users**: Consumer and clinic owner accounts
 - **Clinics**: Clinic profiles, services, and staff
 - **Appointments**: Booking system with scheduling
@@ -20,6 +23,7 @@ Comprehensive database layer for Agenda Bella marketplace. Includes Prisma ORM s
 - **Audit**: Activity logs and compliance tracking
 
 ## Features
+
 - Type-safe database queries with Prisma Client
 - Redis caching layer for performance optimization
 - RabbitMQ integration for async processing
@@ -29,6 +33,7 @@ Comprehensive database layer for Agenda Bella marketplace. Includes Prisma ORM s
 - LGPD compliance with data retention policies
 
 ## Models Overview
+
 ```prisma
 model User {
   id        String   @id @default(cuid())
@@ -51,6 +56,7 @@ model Clinic {
 ```
 
 ## Usage
+
 ```bash
 # Install the package
 pnpm add @agenda-bella/database
@@ -60,6 +66,7 @@ import { prisma, redis, rabbitmq } from '@agenda-bella/database'
 ```
 
 ## Development
+
 ```bash
 # Install dependencies
 pnpm install
@@ -81,6 +88,7 @@ pnpm db:studio
 ```
 
 ## Environment Variables
+
 - `DATABASE_URL`: PostgreSQL connection string
 - `REDIS_URL`: Redis connection string
 - `RABBITMQ_URL`: RabbitMQ connection string
