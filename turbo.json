@@ -11,12 +11,7 @@
         ".env.production",
         ".env"
       ],
-      "outputs": [
-        "dist/**",
-        "build/**",
-        ".next/**",
-        "!.next/cache/**"
-      ]
+      "outputs": ["dist/**", "build/**", ".next/**", "!.next/cache/**"]
     },
     "dev": {
       "cache": false,
@@ -66,9 +61,7 @@
         "vitest.config.ts",
         "vitest.config.js"
       ],
-      "outputs": [
-        "coverage/**"
-      ]
+      "outputs": ["coverage/**"]
     },
     "test:watch": {
       "cache": false,
@@ -84,17 +77,11 @@
         "vitest.config.ts",
         "vitest.config.js"
       ],
-      "outputs": [
-        "coverage/**"
-      ]
+      "outputs": ["coverage/**"]
     },
     "type-check": {
       "dependsOn": ["^build"],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "tsconfig.json",
-        "tsconfig.*.json"
-      ]
+      "inputs": ["$TURBO_DEFAULT$", "tsconfig.json", "tsconfig.*.json"]
     },
     "clean": {
       "cache": false
@@ -120,10 +107,5 @@
     ".env.local",
     ".gitignore"
   ],
-  "globalEnv": [
-    "NODE_ENV",
-    "CI",
-    "VERCEL",
-    "NETLIFY"
-  ]
+  "globalEnv": ["NODE_ENV", "CI", "VERCEL", "NETLIFY"]
 }

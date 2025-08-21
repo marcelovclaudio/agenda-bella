@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["jest", "@jest/globals", "node"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "composite": false
+  },
+  "include": ["src/**/*", "__tests__/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

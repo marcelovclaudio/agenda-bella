@@ -3,15 +3,16 @@
   "compilerOptions": {
     "composite": true,
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": ".",
     "baseUrl": ".",
     "tsBuildInfoFile": "./dist/.tsbuildinfo",
-    "declaration": true,
-    "declarationMap": true,
     "paths": {
-      "@agenda-bella/shared": ["../shared/src"]
+      "@agenda-bella/shared": ["../shared/src"],
+      "@agenda-bella/database": ["../database/src"],
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"]
+  "include": ["src/**/*", "__tests__/**/*", "tsup.config.ts"],
+  "exclude": ["node_modules", "dist", "jest.config.js"],
+  "references": [{ "path": "../shared" }, { "path": "../database" }]
 }

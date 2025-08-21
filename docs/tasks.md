@@ -88,7 +88,7 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
   - `packages/typescript/vite.json`
   - `packages/typescript/express.json`
 
-### - [ ] SETUP-005: Configurar ESLint e Prettier
+### - [x] SETUP-005: Configurar ESLint e Prettier
 
 - **Dependências**: SETUP-004
 - **Tempo estimado**: 2h
@@ -106,7 +106,7 @@ Este documento detalha todas as tarefas necessárias para implementar o monorepo
 
 ## Fase 2: Packages de Segurança
 
-### - [ ] SEC-001: Setup Package Security Base
+### - [x] SEC-001: Setup Package Security Base
 
 - **Dependências**: SETUP-004
 - **Tempo estimado**: 4h

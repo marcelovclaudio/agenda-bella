@@ -2,6 +2,15 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## CRITICAL DIRECTIVES
+
+**⚠️ NEVER DOWNGRADE LIBRARY VERSIONS**
+- NEVER reduce or regress any library version in package.json files
+- Always maintain or upgrade library versions, never downgrade
+- If a version needs to be changed, it must be an upgrade, never a downgrade
+- This applies to ALL dependencies: dependencies, devDependencies, peerDependencies
+- When using agents, ensure they follow this directive strictly
+
 ## Project Overview
 
 Agenda Bella is a beauty and aesthetics marketplace monorepo that connects consumers to clinics and professionals for procedure booking and payment. The platform serves two main user types: Consumers (seeking aesthetic procedures) and Clinics/Professionals (offering services).

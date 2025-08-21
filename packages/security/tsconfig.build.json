@@ -1,0 +1,16 @@
+{
+  "extends": "../typescript/base.json",
+  "compilerOptions": {
+    "composite": false,
+    "incremental": false,
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "paths": {
+      "@agenda-bella/shared": ["../shared/src"],
+      "@agenda-bella/database": ["../database/src"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"]
+}
