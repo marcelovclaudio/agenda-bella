@@ -68,6 +68,8 @@ export {
   isCommonPassword,
   calculatePasswordEntropy,
   generateCharacterSet,
+  hashPassword,
+  verifyPassword,
 } from './utils';
 
 // TODO: Export password service implementations when ready

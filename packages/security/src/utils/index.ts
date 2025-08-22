@@ -4,8 +4,11 @@
  */
 
 // Re-export utilities from shared package
-import { createChildLogger, type Logger } from '@agenda-bella/shared';
+import { createChildLogger, logger, winston, type Logger } from '@agenda-bella/shared';
 import type { SecurityError } from '../types/errors.types';
+
+// Export shared logger utilities for convenience
+export { logger, winston, createChildLogger };
 
 export const securityLogger: Logger = createChildLogger({
   component: 'security',

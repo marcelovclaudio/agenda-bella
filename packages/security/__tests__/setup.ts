@@ -9,8 +9,23 @@ jest.mock('@agenda-bella/shared', () => ({
     child: jest.fn(() => ({
       info: jest.fn(),
       error: jest.fn(),
+      warn: jest.fn(),
+      debug: jest.fn(),
     })),
   },
+  createChildLogger: jest.fn(() => ({
+    info: jest.fn(),
+    error: jest.fn(),
+    warn: jest.fn(),
+    debug: jest.fn(),
+    child: jest.fn(() => ({
+      info: jest.fn(),
+      error: jest.fn(),
+      warn: jest.fn(),
+      debug: jest.fn(),
+    })),
+  })),
+  winston: {},
 }));
 
 // Type definitions for Express-like mock objects

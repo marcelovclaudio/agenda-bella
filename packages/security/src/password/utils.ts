@@ -8,6 +8,8 @@
  * @packageDocumentation
  */
 
+import bcrypt from 'bcryptjs';
+import { securityLogger } from '../utils';
 import type {
   PasswordGenerationOptions,
   PasswordPolicy,
@@ -481,3 +483,111 @@ export function generateCharacterSet(options: PasswordGenerationOptions): string
 
   return charset;
 }
+
+/**
+ * Hash password using bcrypt with configurable rounds
+ *
+ * @param password - Plain text password to hash
+ * @param rounds - Bcrypt rounds for hashing (default: 12)
+ * @returns Promise resolving to bcrypt hash
+ *
+ * @example
+ * ```typescript
+ * const hashedPassword = await hashPassword('password123', 12);
+ * ```
+ */
+export const hashPassword = async (password: string, rounds: number = BCRYPT_ROUNDS.MEDIUM): Promise<string> => {
+  if (typeof password !== 'string') {
+    throw new Error('Password must be a string');
+  }
+
+  if (password.length === 0) {
+    throw new Error('Password cannot be empty');
+  }
+
+  if (rounds < BCRYPT_ROUNDS.LOW || rounds > BCRYPT_ROUNDS.MAXIMUM) {
+    throw new Error(`Bcrypt rounds must be between ${BCRYPT_ROUNDS.LOW} and ${BCRYPT_ROUNDS.MAXIMUM}`);
+  }
+
+  try {
+    const startTime = Date.now();
+    const hash = await bcrypt.hash(password, rounds);
+    const duration = Date.now() - startTime;
+
+    securityLogger.debug('Password hashed successfully', {
+      rounds,
+      duration,
+      hashLength: hash.length,
+    });
+
+    return hash;
+  } catch (error) {
+    securityLogger.error('Password hashing failed', {
+      error: error instanceof Error ? error.message : 'Unknown error',
+      rounds,
+    });
+    throw new Error('Failed to hash password');
+  }
+};
+
+/**
+ * Verify password against bcrypt hash
+ *
+ * @param password - Plain text password to verify
+ * @param hash - Bcrypt hash to compare against
+ * @returns Promise resolving to true if password matches
+ *
+ * @example
+ * ```typescript
+ * const isValid = await verifyPassword('password123', hashedPassword);
+ * ```
+ */
+export const verifyPassword = async (password: string, hash: string): Promise<boolean> => {
+  if (typeof password !== 'string' || typeof hash !== 'string') {
+    throw new Error('Password and hash must be strings');
+  }
+
+  if (password.length === 0) {
+    return false;
+  }
+
+  if (!hash.startsWith('$2b$') && !hash.startsWith('$2a$') && !hash.startsWith('$2y$')) {
+    securityLogger.warn('Invalid bcrypt hash format detected', {
+      hashPrefix: hash.substring(0, 4),
+    });
+    return false;
+  }
+
+  try {
+    const startTime = Date.now();
+    const isValid = await bcrypt.compare(password, hash);
+    const duration = Date.now() - startTime;
+
+    // Ensure minimum timing to prevent timing attacks
+    if (duration < TIMING_CONSTANTS.MIN_VERIFICATION_TIME_MS) {
+      await new Promise(resolve => 
+        setTimeout(resolve, TIMING_CONSTANTS.MIN_VERIFICATION_TIME_MS - duration)
+      );
+    }
+
+    securityLogger.debug('Password verification completed', {
+      isValid,
+      duration,
+      minTimingMet: true,
+    });
+
+    return isValid;
+  } catch (error) {
+    securityLogger.error('Password verification failed', {
+      error: error instanceof Error ? error.message : 'Unknown error',
+      hashLength: hash.length,
+    });
+
+    // Maintain timing consistency even on error
+    await new Promise(resolve => 
+      setTimeout(resolve, TIMING_CONSTANTS.MIN_VERIFICATION_TIME_MS)
+    );
+
+    return false;
+  }
+};

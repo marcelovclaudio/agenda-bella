@@ -109,7 +109,6 @@ export {
 } from './utils/validation';
 
 export type { PasswordRequirements } from './utils/validation';
-export type { PasswordValidationResult } from './password/types';
 
 // ============================================================================
 // MIDDLEWARE UTILITIES
@@ -181,8 +180,58 @@ export * from './auth';
 // Authorization module foundation
 export * from './authorization';
 
-// Password module foundation
-export * from './password';
+// Password module foundation - explicit exports to avoid conflicts
+export type {
+  PasswordPolicy,
+  PasswordStrength,
+  HashResult,
+  PasswordValidationResult,
+  PasswordHistoryEntry,
+  PasswordRotationPolicy,
+  PasswordResetRequest as PasswordModuleResetRequest,
+  PasswordResetResult,
+  PasswordChangeRequest,
+  PasswordChangeResult,
+  PasswordVerificationRequest,
+  PasswordVerificationResult,
+  PasswordBreachResult,
+  PasswordPolicyLevel,
+  PasswordPolicySet,
+  PasswordSecurityConfig,
+  PasswordGenerationOptions,
+  GeneratedPasswordResult,
+} from './password';
+export {
+  DEFAULT_CONSUMER_PASSWORD_POLICY,
+  DEFAULT_PROFESSIONAL_PASSWORD_POLICY,
+  DEFAULT_ADMIN_PASSWORD_POLICY,
+  DEFAULT_CONSUMER_ROTATION_POLICY,
+  DEFAULT_PROFESSIONAL_ROTATION_POLICY,
+  DEFAULT_ADMIN_ROTATION_POLICY,
+  DEFAULT_PASSWORD_POLICY_SET,
+  BCRYPT_ROUNDS,
+  DEFAULT_BCRYPT_ROUNDS_BY_USER_TYPE,
+  PASSWORD_STRENGTH_LABELS,
+  COMMON_WEAK_PATTERNS,
+  CHARACTER_SETS,
+  DEFAULT_PASSWORD_GENERATION_OPTIONS,
+  PASSWORD_GENERATION_OPTIONS_BY_USER_TYPE,
+  DEFAULT_PASSWORD_SECURITY_CONFIG,
+  COMMON_PASSWORDS,
+  ENTROPY_CONSTANTS,
+  PASSWORD_VALIDATION_MESSAGES,
+  PASSWORD_STRENGTH_FEEDBACK,
+  PASSWORD_REGEX,
+  TIMING_CONSTANTS,
+  getPasswordPolicyByUserType,
+  getBcryptRoundsByUserType,
+  getPasswordGenerationOptionsByUserType,
+  isCommonPassword,
+  calculatePasswordEntropy,
+  generateCharacterSet,
+  hashPassword,
+  verifyPassword,
+} from './password';
 
 // Rate limiter module foundation
 export * from './rate-limiter';
